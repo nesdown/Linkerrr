@@ -1,0 +1,73 @@
+.upper-block {
+  position: fixed;
+
+  width: 80%;
+  height: 40%;
+
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+
+  border-radius: 5px;
+
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.logo > p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 72px;
+  color: #2d3e58;
+
+  display: inline-block;
+}
+
+.logo > img {
+  width: 72px;
+  display: inline-block;
+  margin-right: 2.5%;
+}
+
+.logo {
+  text-align: center;
+  top: 50%;
+}
+
+.pane {
+  height: 20%;
+  background-color: #2d3e58;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom-block {
+  background-color: #2d3e58;
+  position: fixed;
+
+  width: 80%;
+  height: 15%;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  top: 65%;
+
+  border-radius: 5px;
+}
+
+.bottom-block {
+  /*position: relative;*/
+}
+
+.ldBar {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.ldBar-label {
+  display: none;
+}

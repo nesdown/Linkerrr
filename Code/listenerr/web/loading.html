@@ -1,0 +1,43 @@
+<html>
+  <head>
+
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "style/common.css" />
+
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "style/loading.css" />
+
+    <!-- Here are libraries -->
+    <link rel="stylesheet" type="text/css" href="lib/loading-bar.min.css"/>
+    <script type="text/javascript" src="lib/loading-bar.min.js"></script>
+
+     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/loading.js"></script>
+  </head>
+
+  <body>
+    <div class="upper-block">
+      <div class="logo">
+        <img src="img/logo.png">
+        <p>Listenerr</p>
+      </div>
+
+      <div class="pane"></div>
+    </div>
+
+    <div class="bottom-block">
+      <div class="ldBar"
+        id="loadingBar"
+        style="width:100%;height:60px"
+        data-value="0"
+        data-stroke="data:ldbar/res,gradient(0,1,#9df,#9fd,#df9,#fd9)"
+        data-path="M10 20Q20 15 30 20Q40 25 50 20Q60 15 70 20Q80 25 90 20"
+      ></div>
+    </div>
+
+  </body>
+</html>

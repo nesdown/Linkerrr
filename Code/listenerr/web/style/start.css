@@ -1,0 +1,273 @@
+.intro-block {
+  position: fixed;
+
+  width: 30%;
+  height: 40%;
+
+  top: 15%;
+  left: 15%;
+  transform: translate(-5%, -15%);
+
+  border-radius: 5px;
+
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.pane {
+  height: 20%;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.blue {
+  background-color: #2d3e58;
+}
+
+.green {
+  background-color: #17c4bb;
+}
+
+.audio-upload-block {
+  position: fixed;
+
+  width: 30%;
+  height: 15%;
+
+  top: 65%;
+  left: 15%;
+  transform: translate(-5%, -65%);
+
+  border-radius: 5px;
+
+  background-color: #2d3e58;
+  overflow: hidden;
+}
+
+.audio-template-block {
+  position: fixed;
+
+  width: 30%;
+  height: 15%;
+
+  top: 90%;
+  left: 15%;
+  transform: translate(-5%, -90%);
+
+  border-radius: 5px;
+
+  background-color: #2d3e58;
+  overflow: hidden;
+}
+
+.output-result-block {
+  position: fixed;
+
+  width: 30%;
+  height: 40%;
+
+  top: 15%;
+  left: 80%;
+  transform: translate(-80%, -15%);
+
+  border-radius: 5px;
+
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.console-block {
+  position: fixed;
+
+  width: 30%;
+  height: 36.5%;
+
+  top: 87%;
+  left: 80%;
+  transform: translate(-80%, -87%);
+
+  border-radius: 5px;
+
+  background-color: #2d3e58;
+  overflow: hidden;
+}
+
+.intro {
+  position: fixed;
+  width: 80%;
+
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+}
+
+.audio-header {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  transform: translate(-15%, -15%);
+}
+
+input:focus {
+  outline-width: 0;
+}
+
+.audio-input {
+  position: fixed;
+
+  top: 70%;
+  left: 18%;
+  transform: translate(-18%, -70%);
+
+  background-color: #fff;
+  color: #000 !important;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+
+  border-color: #fff;
+  border-style: solid;
+  border-radius: 5px;
+
+  padding: 3px;
+}
+
+.audio-select {
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  background: #17c4bb;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  text-align: center;
+
+  transition: background 250ms ease-in-out;
+
+  position: fixed;
+  padding: 8px 12px 8px 12px;
+
+  top: 69.5%;
+  left: 95%;
+  transform: translate(-95%, -69.5%);
+
+  border-radius: 5px;
+}
+
+.audio-select:hover {
+    background: #148f89;
+}
+
+.audio-select:focus {
+  outline: none;
+}
+
+.audio-select:active {
+    background: #4eefe7;
+}
+
+.result-header {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #2d3e58;
+
+  position: fixed;
+}
+
+#output-head {
+  top: 10%;
+  left: 10%;
+  transform: translate(-10%, -10%);
+}
+
+#interference-head {
+  top: 50%;
+  left: 20%;
+  transform: translate(-20%, -50%);
+}
+
+.result-input {
+  position: fixed;
+
+  background-color: #fff;
+  color: #000 !important;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+
+  border-color: #dbe1e4;
+  border-style: solid;
+  border-radius: 5px;
+
+  padding: 3px;
+  width: 90%;
+}
+
+#result-name {
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+#result-interference {
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+}
+
+.start-btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #fff;
+
+  text-align: center;
+
+  transition: all 250ms ease-in-out;
+}
+
+.text-btn {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.start-btn:hover {
+  cursor: hand;
+  background-color: #148f89;
+}
+
+.start-btn:active {
+  font-size: 20px;
+}
+
+.console-header {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+
+  position: fixed;
+  top: 5%;
+  left: 15%;
+  transform: translate(-15%, -5%);
+}
+
+.console-text {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+
+  position: fixed;
+  top: 60%;
+  left: 30%;
+  transform: translate(-30%, -60%);
+}

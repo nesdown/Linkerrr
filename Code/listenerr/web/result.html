@@ -1,0 +1,71 @@
+<html>
+  <head>
+
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "style/common.css" />
+
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "style/result.css" />
+
+    <!-- Here are libraries -->
+    <link rel="stylesheet" type="text/css" href="lib/loading-bar.min.css"/>
+    <script type="text/javascript" src="lib/loading-bar.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="lib/Chart.min.js"></script>
+
+    <script type="text/javascript" src="js/loading.js"></script>
+  </head>
+
+  <body>
+    <div class="main-container">
+
+      <div class="left-block">
+
+        <canvas id="myChart" width="410" height="280"></canvas>
+
+        <div class="pane light stats">
+          <div class="stat1"><div class="ldBar mainline label-center" data-value="75" data-preset="circle"></div><p>param1</p></div>
+
+          <div class="stat2"><div class="ldBar label-center" data-value="90" data-preset="circle"></div><p>param2</p></div>
+
+          <div class="stat3"><div class="ldBar label-center stat3" data-value="90" data-preset="circle"></div><p>param3</p></div>
+          <svg><defs>
+          <filter id="custom-shadow">
+        </div>
+      </div>
+
+      <div class="right-block">
+        <div class="common-header right-header white">Processing Status</div>
+        <div class="result-bar">
+          <div class="ldBar label" data-value="60" data-preset="stripe"></div>
+        </div>
+
+        <div class="common-header right-header white bottom">File Saving</div>
+        <div class="file-bar">
+          <div class="ldBar label" data-value="30" data-preset="stripe"></div>
+        </div>
+      </div>
+
+      <div class="right-button">
+        <div class="btn-text">Rebuild the Schema</div>
+      </div>
+
+      <div class="bottom-block">
+        <div class="common-header dark">Analysis Results</div>
+        <div class="details-text">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</div>
+        <div class="pane blue btn">
+          <div class="btn-bottom-text">Back</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="js/chart.js"></script>
+  </body>
+</html>

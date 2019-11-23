@@ -1,0 +1,75 @@
+<html>
+  <head>
+
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "style/common.css" />
+
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "style/start.css" />
+
+    <!-- Here are libraries -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <div class="main-container">
+
+      <div class="left-pane">
+
+        <div class="intro-block">
+          <img class="intro" src="img/info.png">
+          <div class="pane blue"></div>
+        </div>
+
+        <div class="audio-upload-block">
+          <div class="audio-header">Select the audio files</div>
+          <input class="audio-input" id="audiofiles" placeholder="Hello.mp3" readonly>
+          <button class="audio-select" id="audiofiles-button">Select</button>
+        </div>
+
+        <div class="audio-template-block">
+          <div class="audio-header">Select the audio template</div>
+          <input class="audio-input" id="audiotemplates" placeholder="Dictionary.mp3" readonly>
+          <button class="audio-select" id="audiotemplates-button">Select</button>
+        </div>
+
+      </div>
+
+      <div class="right-pane">
+
+        <div class="output-result-block">
+          <div class="result-header" id="output-head">Output Result File:</div>
+          <input class="result-input" id="result-name" placeholder="Enter the filename">
+
+          <div class="result-header" id="interference-head">Enable Sound Interference?</div>
+          <input class="result-input" id="result-interference" placeholder="Enter True or False">
+          <div class="pane green start-btn"><div class="text-btn">START ANALYSIS</div></div>
+        </div>
+
+        <div class="console-block">
+          <div class="console-header">Console output:</div>
+          <div class="console-text">
+            > Audio files selected successfully...<br>
+            > Uploading...100%<br>
+            > Audio Template has been prepared...<br>
+            > ANALYSIS PROCESS STARTED!<br>
+            > The sound interference started...<br>
+            > Finished Successfully.<br>
+            > DWT Algorithm started...<br>
+            > 40%...<br>
+            > 60%...<br>
+            > 100%..<br>
+            > Preparing the results.<br>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
