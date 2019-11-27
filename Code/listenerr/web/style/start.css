@@ -163,6 +163,7 @@ input:focus {
 
 .audio-select:hover {
     background: #148f89;
+    cursor: hand;
 }
 
 .audio-select:focus {

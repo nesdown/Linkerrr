@@ -19,6 +19,7 @@ function updateLoading(interv) {
 
     status = status + parseInt(interv);
     console.log(status);
+    // 300 for normal
     setTimeout(updateLoading, 300, interv);
   }
 }

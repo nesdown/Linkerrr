@@ -1,329 +1,166 @@
-#!/usr/bin/env python3
+import eel
 
-"""Example Google style docstrings to use in package_name main module
+from tkinter.filedialog import askopenfilename
+from tkinter import Tk
 
-This module demonstrates documentation as specified by the `Google Python
-Style Guide`_. Docstrings may extend over multiple lines. Sections are created
-with a section header and a colon followed by a block of indented text.
+import time
+from time import sleep
+from random import random, randint
 
-Example:
-    Examples can be given using either the ``Example`` or ``Examples``
-    sections. Sections support any reStructuredText formatting, including
-    literal blocks::
+# Import own modules
+import noise_reduction as nr
+import speech_recognize as sprec
+import coincidence_counter as cc
+import formatter as ft
 
-        $ python example_google.py
+# Initialize the web folder
+eel.init('web')
+# Define the functions to work with web interface
+# eel.expose is a wrapper linking to the web functions - just like Electron
 
-Section breaks are created by resuming unindented text. Section breaks
-are also implicitly created anytime a new section starts.
+start_time = time.time()
 
-Attributes:
-    module_level_variable1 (int): Module level variables may be documented in
-        either the ``Attributes`` section of the module docstring, or in an
-        inline docstring immediately following the variable.
+@eel.expose
+def select_audio_file():
+    root = Tk()
 
-        Either form is acceptable, but the two should not be mixed. Choose
-        one convention to document module level variables and be consistent
-        with it.
+    filename = askopenfilename()
+    root.withdraw()
 
-Todo:
-    * For module TODOs
-    * You have to also use ``sphinx.ext.todo`` extension
+    return filename
 
-.. _Google Python Style Guide:
-   http://google.github.io/styleguide/pyguide.html
+@eel.expose
+def select_audio_template():
+    root = Tk()
 
-"""
+    filename = askopenfilename()
+    root.withdraw()
 
+    return filename
 
-import argparse
-import sys
-from package_name import metadata
+@eel.expose
+def start_analysis(audio_name, audio_template, result_filename, interference):
+    eel.updateConsole("ANALYSIS HAS BEEN STARTED...")
+    sleep(random()*2)
 
-module_level_variable1 = 12345
+    # That's sorta system value
+    AUDIO_TO_PROCESS = audio_name
+    AUDIO_TEMPLATE = audio_template
 
-module_level_variable2 = 98765
-"""int: Module level variable documented inline.
+    print("\n ================== \n")
+    print ("Audio to check: "        + audio_name)
+    print ("Audio Template: "        + audio_template)
+    print ("Result Filename: "       + result_filename)
+    print ("Interference Enabled: "  + interference)
+    print("\n ================== \n")
 
-The docstring may span multiple lines. The type may optionally be specified
-on the first line, separated by a colon.
-"""
+    eel.updateConsole("Audio to check: "        + audio_name)
+    sleep(random()*2)
+    eel.updateConsole("Audio Template: "        + audio_template)
+    sleep(random()*2)
+    eel.updateConsole("Result Filename: "       + result_filename)
+    sleep(random()*2)
+    eel.updateConsole("Interference Enabled: "  + interference)
 
+    if (interference == "True"):
+        new_audio_name = nr.noise_reduction(audio_name, "interferred.wav")
+        AUDIO_TO_PROCESS = new_audio_name
 
-def module_level_function(param1, param2=None, *args, **kwargs):
-    """This is an example of a module level function.
+    else:
+        print("You have selected NO INTERFERENCE MODE. That file has not been changed.")
+        print("\n ================== \n")
+        eel.updateConsole("NO INTERFERENCE MODE Selected")
 
-    Function parameters should be documented in the ``Args`` section. The name
-    of each parameter is required. The type and description of each parameter
-    is optional, but should be included if not obvious.
+    sleep(random()*2)
+    eel.updateConsole("<br>=============<br>STARTING ANALYSIS...<br>=============<br>")
 
-    Parameter types -- if given -- should be specified according to
-    `PEP 484`_, though `PEP 484`_ conformance isn't required or enforced.
+    # AUDIO FILE PROCESSOR
+    percentage = 0
+    for i in range(10):
+        sleep(random()*2)
+        percentage += randint(1, 7)
 
-    If \*args or \*\*kwargs are accepted,
-    they should be listed as ``*args`` and ``**kwargs``.
+        if percentage >= 50:
+            break
 
-    The format for a parameter is::
+        eel.updateConsole(str(percentage) + "%")
 
-        name (type): description
-            The description may span multiple lines. Following
-            lines should be indented. The "(type)" is optional.
+    result_audio = sprec.cloud_recognition(AUDIO_TO_PROCESS)
 
-            Multiple paragraphs are supported in parameter
-            descriptions.
+    for i in range(10):
+        sleep(random()*2)
+        percentage += randint(1, 7)
 
-    Args:
-        param1 (int): The first parameter.
-        param2 (Optional[str]): The second parameter. Defaults to None.
-            Second line of description should be indented.
-        *args: Variable length argument list.
-        **kwargs: Arbitrary keyword arguments.
+        if percentage >= 100:
+            break
 
-    Returns:
-        bool: True if successful, False otherwise.
+    eel.updateConsole("<br>First Part of Common-Based Analysis Done.")
 
-        The return type is optional and may be specified at the beginning of
-        the ``Returns`` section followed by a colon.
+    percentage = 0
+    for i in range(10):
+        sleep(random()*2)
+        percentage += randint(1, 7)
 
-        The ``Returns`` section may span multiple lines and paragraphs.
-        Following lines should be indented to match the first line.
+        if percentage >= 50:
+            break
 
-        The ``Returns`` section supports any reStructuredText formatting,
-        including literal blocks::
+        eel.updateConsole(str(percentage) + "%")
 
-            {
-                'param1': param1,
-                'param2': param2
-            }
+    sleep(random()*2)
+    eel.updateConsole("Word Recognition Accuracy: " + result_audio['accuracy'])
+    sleep(random()*2)
 
-    Raises:
-        AttributeError: The ``Raises`` section is a list of all exceptions
-            that are relevant to the interface.
-        ValueError: If `param2` is equal to `param1`.
+    # AUDIO TEMPLATE PROCESSOR
+    eel.updateConsole("Processing the template file...")
+    for i in range(10):
+        sleep(random()*2)
+        percentage += randint(1, 7)
 
+        if percentage >= 100:
+            break
 
-    .. _PEP 484:
-       https://www.python.org/dev/peps/pep-0484/
+        eel.updateConsole(str(percentage) + "%")
 
-    """
-    if param1 == param2:
-        raise ValueError('param1 may not be equal to param2')
-    return True
+    result_audio_template = sprec.cloud_recognition(AUDIO_TEMPLATE)
 
+    for i in range(10):
+        sleep(random()*2)
+        percentage += randint(1, 7)
 
-def example_generator(n):
-    """Generators have a ``Yields`` section instead of a ``Returns`` section.
+        if percentage >= 100:
+            break
 
-    Args:
-        n (int): The upper limit of the range to generate, from 0 to `n` - 1.
+        eel.updateConsole(str(percentage) + "%")
 
-    Yields:
-        int: The next number in the range of 0 to `n` - 1.
+    sleep(random()*2)
+    eel.updateConsole("Template Recognition Accuracy: " + result_audio_template['accuracy'])
+    sleep(random()*2)
 
-    Examples:
-        Examples should be written in doctest format, and should illustrate how
-        to use the function.
+    eel.updateConsole("Countining concidences...")
 
-        >>> print([i for i in example_generator(4)])
-        [0, 1, 2, 3]
+    sleep(random()*3)
 
-    """
-    for i in range(n):
-        yield i
+    coincidence_counts = cc.count_coincidence(result_audio['google_speech'], result_audio_template['houndify'])
 
+    eel.updateConsole("Counting completed. Redirecting...")
 
-class ExampleError(Exception):
-    """Exceptions are documented in the same way as classes.
+    current_time = time.time() - start_time
 
-    The __init__ method may be documented in either the class level
-    docstring, or as a docstring on the __init__ method itself.
+    sleep(random()*2)
 
-    Either form is acceptable, but the two should not be mixed. Choose one
-    convention to document the __init__ method and be consistent with it.
+    eel.showResults()
 
-    Note:
-        Do not include the `self` parameter in the ``Args`` section.
+    analyze_results = ft.format_output(coincidence_counts, result_audio['accuracy'], result_audio_template['accuracy'], current_time)
 
-    Args:
-        msg (str): Human readable string describing the exception.
-        code (Optional[int]): Error code.
+    print(analyze_results)
+    eel.showCircles(analyze_results[0], analyze_results[1], analyze_results[2])
 
-    Attributes:
-        msg (str): Human readable string describing the exception.
-        code (int): Exception error code.
+@eel.expose
+def rebuild_schema():
+    pass
 
-    """
+@eel.expose
+def return_back():
+    pass
 
-    def __init__(self, msg, code):
-        self.msg = msg
-        self.code = code
-
-
-class ExampleClass(object):
-    """The summary line for a class docstring should fit on one line.
-
-    If the class has public attributes, they may be documented here
-    in an ``Attributes`` section and follow the same formatting as a
-    function's ``Args`` section. Alternatively, attributes may be documented
-    inline with the attribute's declaration (see __init__ method below).
-
-    Properties created with the ``@property`` decorator should be documented
-    in the property's getter method.
-
-    Attribute and property types -- if given -- should be specified according
-    to `PEP 484`_, though `PEP 484`_ conformance isn't required or enforced.
-
-    Attributes:
-        attr1 (str): Description of `attr1`.
-        attr2 (Optional[int]): Description of `attr2`.
-
-
-    .. _PEP 484:
-       https://www.python.org/dev/peps/pep-0484/
-
-    """
-
-    def __init__(self, param1, param2, param3):
-        """Example of docstring on the __init__ method.
-
-        The __init__ method may be documented in either the class level
-        docstring, or as a docstring on the __init__ method itself.
-
-        Either form is acceptable, but the two should not be mixed. Choose one
-        convention to document the __init__ method and be consistent with it.
-
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
-        Args:
-            param1 (str): Description of `param1`.
-            param2 (Optional[int]): Description of `param2`. Multiple
-                lines are supported.
-            param3 (List[str]): Description of `param3`.
-
-        """
-        self.attr1 = param1
-        self.attr2 = param2
-        self.attr3 = param3  #: Doc comment *inline* with attribute
-
-        #: List[str]: Doc comment *before* attribute, with type specified
-        self.attr4 = ['attr4']
-
-        self.attr5 = None
-        """Optional[str]: Docstring *after* attribute, with type specified."""
-
-    @property
-    def readonly_property(self):
-        """str: Properties should be documented in their getter method."""
-        return 'readonly_property'
-
-    @property
-    def readwrite_property(self):
-        """List[str]: Properties with both a getter and setter should only
-        be documented in their getter method.
-
-        If the setter method contains notable behavior, it should be
-        mentioned here.
-        """
-        return ['readwrite_property']
-
-    @readwrite_property.setter
-    def readwrite_property(self, value):
-        value
-
-    def example_method(self, param1, param2):
-        """Class methods are similar to regular functions.
-
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
-        Args:
-            param1: The first parameter.
-            param2: The second parameter.
-
-        Returns:
-            True if successful, False otherwise.
-
-        """
-        return True
-
-    def __special__(self):
-        """By default special members with docstrings are not included.
-
-        Special members are any methods or attributes that start with and
-        end with a double underscore. Any special member with a docstring
-        will be included in the output, if
-        ``napoleon_include_special_with_doc`` is set to True.
-
-        This behavior can be enabled by changing the following setting in
-        Sphinx's conf.py::
-
-            napoleon_include_special_with_doc = True
-
-        """
-        pass
-
-    def __special_without_docstring__(self):
-        pass
-
-    def _private(self):
-        """By default private members are not included.
-
-        Private members are any methods or attributes that start with an
-        underscore and are *not* special. By default they are not included
-        in the output.
-
-        This behavior can be changed such that private members *are* included
-        by changing the following setting in Sphinx's conf.py::
-
-            napoleon_include_private_with_doc = True
-
-        """
-        pass
-
-    def _private_without_docstring(self):
-        pass
-
-def main(argv):
-    """This is the module main function.
-
-    This function just parse the arguments and show metadata information.
-
-    Args:
-        *argv (list): Variable length argument list.
-    """
-
-    author_string = "{0} <{1}>".format(metadata.author, metadata.email)
-
-    epilog_string = '''{proj} {ver}\n\nBy:\n    {auth}\n\nWebsite: {url}\n'''.format(
-        proj=metadata.project,
-        ver=metadata.version,
-        auth=author_string,
-        url=metadata.url)
-
-
-    arg_parser = argparse.ArgumentParser(
-        prog=argv[0],
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=metadata.short_description,
-        epilog=epilog_string)
-
-    arg_parser.add_argument(
-        '-V', '--version',
-        action='version',
-        version='{0} {1}'.format(metadata.project, metadata.version))
-
-    arg_parser.parse_args(args=argv[1:])
-
-    print(epilog_string)
-
-    return 0
-
-
-def entry_point():
-    """Entry point function."""
-    raise SystemExit(main(sys.argv))
-
-
-if __name__ == '__main__':
-    """This block will run when the module is called as main"""
-    entry_point()
+eel.start('loading.html', size=(1040, 730))

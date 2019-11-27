@@ -3,10 +3,10 @@ Chart.defaults.global.defaultFontColor = 'white';
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['0', '0:20', '0:40', '1:00', '1:20', '1:40'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Data Result',
+            data: [0, 1, 0, 0, 1, 0],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
